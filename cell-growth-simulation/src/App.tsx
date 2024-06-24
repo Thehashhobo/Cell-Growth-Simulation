@@ -1,26 +1,38 @@
 import React from 'react';
-import logo from './logo.svg';
+import Grid from './components/Grid';
+import Controls, { ControlsProps } from './components/Controls';
+import useSimulation from './components/Simulation';
 import './App.css';
 
-function App() {
+const App: React.FC = () => {
+  const initialInterval = 1000;
+  const {
+    grid,
+    isRunning,
+    width,
+    height,
+    interval,
+    toggleCellState,
+    startPauseSimulation,
+    resetSimulation,
+    setInterval,
+    updateGridSize
+  } = useSimulation(20, 20, initialInterval);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="app">
+      <Grid grid={grid} onCellClick={toggleCellState} />
+      <Controls
+        isRunning={isRunning}
+        width={width}
+        height={height}
+        onStartPause={startPauseSimulation}
+        onReset={resetSimulation}
+        onIntervalChange={setInterval}
+        onGridSizeChange={updateGridSize}
+      />
     </div>
   );
-}
+};
 
 export default App;
