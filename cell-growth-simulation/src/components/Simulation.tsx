@@ -12,6 +12,8 @@ const Simulation = (initialWidth: number = 20, initialHeight: number = 20, initi
   const intervalRef = useRef<number | undefined>(undefined);
   // useRef to avoid rerendering, potentialCells keeps track of occupied cells with growth potiental 
   const potentialCells = useRef<Set<string>>(new Set());
+  // keeps track of growth rate
+  const [newCellsCount, setNewCellsCount] = useState(0);
 
   const toggleCellState = (row: number, col: number) => {
     const neighbors = [
@@ -49,23 +51,9 @@ const Simulation = (initialWidth: number = 20, initialHeight: number = 20, initi
 
   };
 
-  const addPotentialCells = (row: number, col: number) => {
-    const neighbors = [
-      [row - 1, col],
-      [row + 1, col],
-      [row, col - 1],
-      [row, col + 1]
-    ];
-    neighbors.forEach(([r, c]) => {
-      if (r >= 0 && r < height && c >= 0 && c < width && !grid[r][c]) {
-        potentialCells.current.add(`${r},${c}`);
-      }
-    });
-  };
-
-
   // algorithm for growth of bacterial cell, potentialCells and refilled with new potentialCells every growth cycle
   const simulateStep = () => {
+    let newCellsAdded = 0;
     const newGrid = grid.map(row => row.slice()); 
     const newPotentialCells = new Set<string>();
   
@@ -83,6 +71,7 @@ const Simulation = (initialWidth: number = 20, initialHeight: number = 20, initi
         if (r >= 0 && r < height && c >= 0 && c < width && !newGrid[r][c]) {
           newGrid[r][c] = true;
           newPotentialCells.add(`${r},${c}`);
+          newCellsAdded++;
         }
       });
 
@@ -95,6 +84,7 @@ const Simulation = (initialWidth: number = 20, initialHeight: number = 20, initi
     // Update potentialCells with new potential cells
     potentialCells.current = newPotentialCells;
     setGrid(newGrid);
+    setNewCellsCount(newCellsAdded);
   };
   
 
@@ -117,6 +107,7 @@ const Simulation = (initialWidth: number = 20, initialHeight: number = 20, initi
     setGrid(createEmptyGrid(width, height));
     potentialCells.current = new Set();
     setIsRunning(false);
+    setNewCellsCount(0);
   };
 
   const updateGridSize = (newWidth: number, newHeight: number) => {
@@ -124,6 +115,7 @@ const Simulation = (initialWidth: number = 20, initialHeight: number = 20, initi
     setHeight(newHeight);
     setGrid(createEmptyGrid(newWidth, newHeight));
     potentialCells.current = new Set();
+    setNewCellsCount(0);
   };
 
   return {
@@ -131,7 +123,7 @@ const Simulation = (initialWidth: number = 20, initialHeight: number = 20, initi
     isRunning,
     width,
     height,
-    interval,
+    newCellsCount,
     toggleCellState,
     startPauseSimulation,
     resetSimulation,

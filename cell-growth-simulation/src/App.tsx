@@ -11,7 +11,7 @@ const App: React.FC = () => {
     isRunning,
     width,
     height,
-    interval,
+    newCellsCount,
     toggleCellState,
     startPauseSimulation,
     resetSimulation,
@@ -31,6 +31,9 @@ const App: React.FC = () => {
         onIntervalChange={setInterval}
         onGridSizeChange={updateGridSize}
       />
+      <div className="info">
+        New cells added per cycle: {newCellsCount}
+      </div>
     </div>
   );
 };
