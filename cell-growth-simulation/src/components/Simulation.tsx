@@ -10,42 +10,93 @@ const Simulation = (initialWidth: number = 20, initialHeight: number = 20, initi
   const [grid, setGrid] = useState<boolean[][]>(createEmptyGrid(width, height));
   const [isRunning, setIsRunning] = useState(false);
   const intervalRef = useRef<number | undefined>(undefined);
+  // useRef to avoid rerendering, potentialCells keeps track of occupied cells with growth potiental 
+  const potentialCells = useRef<Set<string>>(new Set());
 
   const toggleCellState = (row: number, col: number) => {
+    const neighbors = [
+      [row - 1, col],
+      [row + 1, col],
+      [row, col - 1],
+      [row, col + 1]
+    ];
     // Create a shallow copies to maintan immutability
     const newGrid = [...grid];
     newGrid[row] = [...newGrid[row]];
+
+    const cellKey = `${row},${col}`;
+    
+    // maintains potientalCells 
+    if (newGrid[row][col]) {
+      potentialCells.current.delete(cellKey);
+      neighbors.forEach(([r, c]) => {
+        if (r >= 0 && r < height && c >= 0 && c < width && grid[r][c]) {
+          potentialCells.current.add(`${r},${c}`);
+        }
+      });
+    } else {
+      neighbors.some(([r, c]) => {
+        if (r >= 0 && r < height && c >= 0 && c < width && !grid[r][c]) {
+          potentialCells.current.add(cellKey);
+        }
+      });
+    }
+
     newGrid[row][col] = !newGrid[row][col];
     
     // Update the grid state
     setGrid(newGrid);
+
   };
-  
-  // algorithm for growth of bacterial cell
+
+  const addPotentialCells = (row: number, col: number) => {
+    const neighbors = [
+      [row - 1, col],
+      [row + 1, col],
+      [row, col - 1],
+      [row, col + 1]
+    ];
+    neighbors.forEach(([r, c]) => {
+      if (r >= 0 && r < height && c >= 0 && c < width && !grid[r][c]) {
+        potentialCells.current.add(`${r},${c}`);
+      }
+    });
+  };
+
+
+  // algorithm for growth of bacterial cell, potentialCells and refilled with new potentialCells every growth cycle
   const simulateStep = () => {
-    const newGrid = grid.map((row, rowIndex) =>
-      row.map((cell, colIndex) => {
-        if (!cell) {
-          const neighbors = [
-            [rowIndex - 1, colIndex],
-            [rowIndex + 1, colIndex],
-            [rowIndex, colIndex - 1],
-            [rowIndex, colIndex + 1]
-          ];
-          return neighbors.some(
-            ([r, c]) =>
-              r >= 0 &&
-              r < height &&
-              c >= 0 &&
-              c < width &&
-              grid[r][c]
-          );
+    const newGrid = grid.map(row => row.slice()); 
+    const newPotentialCells = new Set<string>();
+  
+    potentialCells.current.forEach(cellKey => {
+      const [rowIndex, colIndex] = cellKey.split(',').map(Number);
+  
+      const neighbors = [
+        [rowIndex - 1, colIndex],
+        [rowIndex + 1, colIndex],
+        [rowIndex, colIndex - 1],
+        [rowIndex, colIndex + 1]
+      ];
+
+      neighbors.forEach(([r, c]) => {
+        if (r >= 0 && r < height && c >= 0 && c < width && !newGrid[r][c]) {
+          newGrid[r][c] = true;
+          newPotentialCells.add(`${r},${c}`);
         }
-        return cell;
-      })
-    );
+      });
+
+      newGrid[rowIndex][colIndex] = true; // Mark the current cell as occupied
+  
+      // Remove the cell from potentialCells
+      potentialCells.current.delete(cellKey);
+    });
+  
+    // Update potentialCells with new potential cells
+    potentialCells.current = newPotentialCells;
     setGrid(newGrid);
   };
+  
 
 
   useEffect(() => {
@@ -64,6 +115,7 @@ const Simulation = (initialWidth: number = 20, initialHeight: number = 20, initi
 
   const resetSimulation = () => {
     setGrid(createEmptyGrid(width, height));
+    potentialCells.current = new Set();
     setIsRunning(false);
   };
 
@@ -71,6 +123,7 @@ const Simulation = (initialWidth: number = 20, initialHeight: number = 20, initi
     setWidth(newWidth);
     setHeight(newHeight);
     setGrid(createEmptyGrid(newWidth, newHeight));
+    potentialCells.current = new Set();
   };
 
   return {
