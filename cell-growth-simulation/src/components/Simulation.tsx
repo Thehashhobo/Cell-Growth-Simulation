@@ -12,14 +12,16 @@ const Simulation = (initialWidth: number = 20, initialHeight: number = 20, initi
   const intervalRef = useRef<number | undefined>(undefined);
 
   const toggleCellState = (row: number, col: number) => {
-    const newGrid = grid.map((r, rowIndex) =>
-      r.map((cell, colIndex) =>
-        rowIndex === row && colIndex === col ? !cell : cell
-      )
-    );
+    // Create a shallow copies to maintan immutability
+    const newGrid = [...grid];
+    newGrid[row] = [...newGrid[row]];
+    newGrid[row][col] = !newGrid[row][col];
+    
+    // Update the grid state
     setGrid(newGrid);
   };
-
+  
+  // algorithm for growth of bacterial cell
   const simulateStep = () => {
     const newGrid = grid.map((row, rowIndex) =>
       row.map((cell, colIndex) => {
@@ -44,6 +46,7 @@ const Simulation = (initialWidth: number = 20, initialHeight: number = 20, initi
     );
     setGrid(newGrid);
   };
+
 
   useEffect(() => {
     if (isRunning) {
