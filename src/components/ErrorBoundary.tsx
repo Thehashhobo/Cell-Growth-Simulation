@@ -7,7 +7,7 @@ type ErrorBoundaryProps = {
 type ErrorBoundaryState = {
   hasError: boolean;
 };
-
+// used to catch errors anywhere in their child component tree, log those errors, and display a fallback UI
 class ErrorBoundary extends Component<ErrorBoundaryProps, ErrorBoundaryState> {
   constructor(props: ErrorBoundaryProps) {
     super(props);

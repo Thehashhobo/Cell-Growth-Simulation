@@ -14,14 +14,13 @@ Before you begin, ensure you have the following installed on your machine:
 - [npm](https://www.npmjs.com/) (v9.x or later)
 
 ### Installation
-1. Clone the repository to your local machine: 
+1. Clone the repository to your local machine: \
 `git clone https://github.com/your-username/cell-growth-simulation.git`
-2. Navigate to the project directory. 
+2. Navigate to the project directory: \
 `cd cell-growth-simulation`
-3. Install Dependencies
-`npm install` \
-Note that warnings from deprecated dependencies can be safely ignore due to simiplicity of this project 
-4. Start the development server: Open your browser and navigate to http://localhost:3000 to view the application.
+3. Install Dependencies(Note that warnings from deprecated dependencies can be safely ignore due to simiplicity of this project ): \
+`npm install`
+4. Start the development server: Open your browser and navigate to http://localhost:3000 to view the application: \
 `npm start`
 # Project Structure
 The project is organized into the src folder: 
@@ -30,13 +29,15 @@ The project is organized into the src folder:
 - Grid.tsx: The component responsible for rendering the grid and handling cell state toggling.
 - Controls.tsx: The component that provides control buttons and input fields to interact with the simulation.
 - Simulation.tsx: Contains the simulation logic including the state and effect hooks for managing the grid, interval, and cell growth. \
-App.tsx: The main component in src that sets up the layout and integrates other components.
+- ErrorBoundary.tsx: used to warp app, catchs error anywhere in their child component tree, log those errors, and display a fallback UI. \
+- App.tsx: The main component in src that sets up the layout and integrates other components. \
 
 # Assumptions
 The grid is initialized with a default size of 20x20 and a default interval of 1000ms. The simulation assumes all cells start in an unoccupied state. Occupied cells will grow to all unoccupied neighbours.
 # Additional Features
-Added a dynamic SVG chart to display the growth data over time. This includes interactive elements to update the grid size and simulation interval.
-
+- Added a dynamic SVG chart to display the growth data over time. This includes interactive elements to update the grid size and simulation interval.
+- Partially accessible with aria-label on controls, particularly useful for screen reader users.
+- keyboard navigation for controls (press tab to select buttons, enter to confirm).  
 # Performance analysis
-# Getting Started with Create React App
+
 
