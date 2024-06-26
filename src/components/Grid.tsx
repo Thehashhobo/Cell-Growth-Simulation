@@ -5,13 +5,13 @@ interface GridProps {
   grid: boolean[][];
   onCellClick: (row: number, col: number) => void;
 }
-// // The grid is rendered as a series of rows, each containing a series of cells
+// The grid is rendered as a series of rows, each containing a series of cells
 const Grid: React.FC<GridProps> = ({ grid, onCellClick }) => {
   return (
     <div className="container"> 
-      <div className="grid">
+      <div className="grid" role="grid" aria-label="Cell grid">
         {grid.map((row, rowIndex) => (
-          <div className="row" key={rowIndex}>
+          <div className="row" key={rowIndex} role="row">
             {row.map((isOccupied, colIndex) => (
               // For each cell, a Cell component is created with a unique key (colIndex)
               <Cell
@@ -28,3 +28,4 @@ const Grid: React.FC<GridProps> = ({ grid, onCellClick }) => {
 };
 
 export default Grid;
+              // For each cell, a Cell component is created with a unique key (colIndex)

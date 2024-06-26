@@ -10,6 +10,7 @@ export type ControlsProps = {
   onGridSizeChange: (newWidth: number, newHeight: number) => void;
 };
 
+// Responsible to all controll parameters for the simulation 
 const Controls: React.FC<ControlsProps> = ({
   isRunning,
   width,
@@ -34,7 +35,7 @@ const Controls: React.FC<ControlsProps> = ({
   };
 
   return (
-    <div className="controls">
+    <div className="controls" aria-label="Simulation controls">
       <div className="input-group">
         <label htmlFor="interval-input">Interval (ms)</label>
         <input
@@ -43,6 +44,7 @@ const Controls: React.FC<ControlsProps> = ({
           value={interval}
           onChange={handleIntervalChange}
           placeholder="Interval (ms)"
+          aria-label="Set interval in milliseconds"
         />
       </div>
       <div className="input-group">
@@ -53,6 +55,7 @@ const Controls: React.FC<ControlsProps> = ({
           value={newWidth}
           onChange={(e) => setNewWidth(Number(e.target.value))}
           placeholder="Width"
+          aria-label="Set grid width"
         />
       </div>
       <div className="input-group">
@@ -63,14 +66,15 @@ const Controls: React.FC<ControlsProps> = ({
           value={newHeight}
           onChange={(e) => setNewHeight(Number(e.target.value))}
           placeholder="Height"
+          aria-label="Set grid height"
         />
       </div>
       <button onClick={handleGridSizeChange}>Update Grid Size</button>
       <div className="button-group">
-        <button className="large-button" onClick={onStartPause}>
+        <button className="large-button" onClick={onStartPause} aria-label={isRunning ? "Pause simulation" : "Start simulation"}>
           {isRunning ? 'Pause' : 'Start'}
         </button>
-        <button className="large-button" onClick={onReset}>Reset</button>
+        <button className="large-button" onClick={onReset} aria-label="Reset simulation">Reset</button>
       </div>
     </div>
   );

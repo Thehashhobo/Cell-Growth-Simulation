@@ -3,6 +3,7 @@ import { useState, useEffect, useRef, useCallback } from 'react';
 const createEmptyGrid = (width: number, height: number): boolean[][] =>
   Array.from({ length: height }, () => Array(width).fill(false));
 
+// handles logic of simulation
 const Simulation = (initialWidth: number = 20, initialHeight: number = 20, initialInterval: number) => {
   const [width, setWidth] = useState(initialWidth);
   const [height, setHeight] = useState(initialHeight);
@@ -19,6 +20,7 @@ const Simulation = (initialWidth: number = 20, initialHeight: number = 20, initi
   // Limit number of data points to display
   const maxDataPoints = 50;
 
+  // manually toggles cell states
   const toggleCellState = (row: number, col: number) => {
     const neighbors = [
       [row - 1, col],
@@ -93,8 +95,7 @@ const Simulation = (initialWidth: number = 20, initialHeight: number = 20, initi
     setNewCellsCount(newCellsAdded);
   }, [grid, height, width]);
   
-
-
+  // useEffect to simulate growth of bacteria, runs every growth interval
   useEffect(() => {
     if (isRunning) {
       setGrowthData((prevData) => [...prevData, newCellsCount]);
