@@ -96,3 +96,23 @@ button {
   align-items: center;
   margin-top: 20px;
 }
+
+.grid {
+  display: flex;
+  flex-direction: row;
+}
+
+.grid-row {
+  display: flex;
+}
+
+.cell {
+  width: 20px;
+  height: 20px;
+  border: 1px solid #ddd;
+  cursor: pointer;
+}
+
+.occupied {
+  background-color: rgb(216, 115, 15);
+}
