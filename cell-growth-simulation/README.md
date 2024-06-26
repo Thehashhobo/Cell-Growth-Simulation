@@ -1,3 +1,19 @@
+# Project Overview
+This simple Cell Growth simulation presents an intuitive and easy method to visualize the growth of bacteria in a 2d surface. Built with React using Strict typescript.
+## Features
+- Real time editing of cell grid
+- adjustable grid size and growth interval
+- Graphical visualization of growth rates
+
+# Running application locally
+
+# Project Structure
+
+# Assumptions
+
+# Additional Features
+
+# Performance analysis
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
