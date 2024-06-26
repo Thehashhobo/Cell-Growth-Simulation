@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/Cell-Growth-Simulation/static/css/main.e151cf4e.css",
+    "main.js": "/Cell-Growth-Simulation/static/js/main.a275affb.js",
+    "static/js/453.f6e6b26b.chunk.js": "/Cell-Growth-Simulation/static/js/453.f6e6b26b.chunk.js",
+    "index.html": "/Cell-Growth-Simulation/index.html",
+    "main.e151cf4e.css.map": "/Cell-Growth-Simulation/static/css/main.e151cf4e.css.map",
+    "main.a275affb.js.map": "/Cell-Growth-Simulation/static/js/main.a275affb.js.map",
+    "453.f6e6b26b.chunk.js.map": "/Cell-Growth-Simulation/static/js/453.f6e6b26b.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.e151cf4e.css",
+    "static/js/main.a275affb.js"
+  ]
+}
