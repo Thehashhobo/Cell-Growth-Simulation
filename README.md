@@ -16,7 +16,7 @@ Before you begin, ensure you have the following installed on your machine:
 ### Installation
 1. Clone the repository to your local machine: \
 `git clone https://github.com/Thehashhobo/Cell-Growth-Simulation.git`
-### Running the app
+### Running the application
 2. Navigate to the project directory: \
 `cd cell-growth-simulation`
 3. Install Dependencies(Note that warnings from deprecated dependencies can be safely ignore due to simiplicity of this project): \
@@ -48,21 +48,19 @@ Performance of the application measured with chrome’s built in dev-tool: [Ligh
 - Assess Progressive Web App capabilities.
 ### Results
 - Overall Score and test results from lighthouse\
-![Screenshot of the application](https://github.com/Thehashhobo/Cell-Growth-Simulation/blob/main/Lighthouse_result/Nav1.PNG)
+![Screenshot of the application](https://github.com/Thehashhobo/Cell-Growth-Simulation/blob/main/Lighthosue_result/Nav1.PNG)
 - Performance metric and results
-![Screenshot of the application](https://github.com/Thehashhobo/Cell-Growth-Simulation/blob/main/Lighthouse_result/Nav2.PNG)
+![Screenshot of the application](https://github.com/Thehashhobo/Cell-Growth-Simulation/blob/main/Lighthosue_result/Nav2.PNG)
 ## Timespan
 - Measure layout shifts and JavaScript execution time over a timerange, including user interactions.
 - Discover performance opportunities to improve the experience for long-lived pages and SPAs.
 ### Results
 - Performance metric and results from user interaction
-![Screenshot of the application](https://github.com/Thehashhobo/Cell-Growth-Simulation/blob/main/Lighthouse_result/Time1.PNG)
+![Screenshot of the application](https://github.com/Thehashhobo/Cell-Growth-Simulation/blob/main/Lighthosue_result/Time1.PNG)
 - Work trace
-![Screenshot of the application](https://github.com/Thehashhobo/Cell-Growth-Simulation/blob/main/Lighthouse_result/Time2.PNG)
+![Screenshot of the application](https://github.com/Thehashhobo/Cell-Growth-Simulation/blob/main/Lighthosue_result/Time2.PNG)
 
 #### Enviromental Data
-![Screenshot of the application](https://github.com/Thehashhobo/Cell-Growth-Simulation/blob/main/Lighthouse_result/Nav3.PNG)
+![Screenshot of the application](https://github.com/Thehashhobo/Cell-Growth-Simulation/blob/main/Lighthosue_result/Nav3.PNG)
 # Application deployment
 The website is hosted on github pages: https://thehashhobo.github.io/Cell-Growth-Simulation/
-
-
