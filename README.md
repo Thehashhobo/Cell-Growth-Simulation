@@ -46,21 +46,20 @@ Performance of the application measured with chrome’s built in dev-tool: [Ligh
 - Assess Progressive Web App capabilities.
 ### Results
 - Overall Score and test results from lighthouse
-[nav1](Nav1.png)
+![Screenshot of the application](Nav1.png)
 - Performance metric and results
-[nav2](Nav2.png)
+![Screenshot of the application](Nav2.png)
 ## Timespan
 - Measure layout shifts and JavaScript execution time over a timerange, including user interactions.
 - Discover performance opportunities to improve the experience for long-lived pages and SPAs.
 ### Results
 - Performance metric and results from user interaction
-[time1](Time1.png)
+![Screenshot of the application](Time1.png)
 - Work trace
-[time2](Time2.png)
-
+![Screenshot of the application](Time2.png)
 
 #### Enviromental Data
-[nav3](Nav3.png)
+[Screenshot of the application](Nav3.png)
 # Application deployment
 The website is host on github pages: https://thehashhobo.github.io/Cell-Growth-Simulation/
 
