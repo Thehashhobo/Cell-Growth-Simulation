@@ -21,7 +21,7 @@ const App: React.FC = () => {
     setInterval,
     updateGridSize
   } = useSimulation(20, 20, initialInterval);
-  const maxGrowthValue = Math.max(...growthData.slice(-maxDataPoints));
+  const maxGrowthValue = Math.max(...growthData.slice(-maxDataPoints)) || 1;
 
   // wrap in error boundary to catch errors and log errors, and display a fallback UI.
   return (
@@ -65,7 +65,7 @@ const App: React.FC = () => {
                 <circle
                   key={index}
                   cx={(index / maxDataPoints) * 500}
-                  cy={200 - (value / maxGrowthValue) * 200}
+                  cy={200 - (value / maxGrowthValue) * 200 || 0}
                   r={3}
                   fill="black"
                 />
