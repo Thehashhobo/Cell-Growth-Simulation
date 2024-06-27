@@ -19,7 +19,7 @@ Before you begin, ensure you have the following installed on your machine:
 ### Running the application
 2. Navigate to the project directory: \
 `cd cell-growth-simulation`
-3. Install Dependencies(Note that warnings from deprecated dependencies can be safely ignore due to simiplicity of this project): \
+3. Install Dependencies(Note that warnings from deprecated dependencies can be safely ignore due to simplicity of this project): \
 `npm install`
 4. Start the development server: Open your browser and navigate to http://localhost:3000 to view the application: \
 `npm start`
@@ -30,7 +30,7 @@ The project is organized into the src folder:
 - Grid.tsx: The component responsible for rendering the grid and handling cell state toggling.
 - Controls.tsx: The component that provides control buttons and input fields to interact with the simulation.
 - Simulation.tsx: Contains the simulation logic including the state and effect hooks for managing the grid, interval, and cell growth. 
-- ErrorBoundary.tsx: The component used to warp app, catchs error anywhere in their child component tree, log those errors, and display a fallback UI. 
+- ErrorBoundary.tsx: The component used to wrap app, catches error anywhere in their child component tree, log those errors, and display a fallback UI. 
 - App.tsx: The main component in src that sets up the layout and integrates other components. 
 
 # Assumptions
@@ -48,19 +48,19 @@ Performance of the application measured with chrome’s built in dev-tool: [Ligh
 - Assess Progressive Web App capabilities.
 ### Results
 - Overall Score and test results from lighthouse\
-![Screenshot of the application](https://github.com/Thehashhobo/Cell-Growth-Simulation/blob/main/Lighthosue_result/Nav1.PNG)
+![Screenshot of the application](https://github.com/Thehashhobo/Cell-Growth-Simulation/blob/main/Lighthouse_result/Nav1.PNG)
 - Performance metric and results
-![Screenshot of the application](https://github.com/Thehashhobo/Cell-Growth-Simulation/blob/main/Lighthosue_result/Nav2.PNG)
+![Screenshot of the application](https://github.com/Thehashhobo/Cell-Growth-Simulation/blob/main/Lighthouse_result/Nav2.PNG)
 ## Timespan
 - Measure layout shifts and JavaScript execution time over a timerange, including user interactions.
 - Discover performance opportunities to improve the experience for long-lived pages and SPAs.
 ### Results
 - Performance metric and results from user interaction
-![Screenshot of the application](https://github.com/Thehashhobo/Cell-Growth-Simulation/blob/main/Lighthosue_result/Time1.PNG)
+![Screenshot of the application](https://github.com/Thehashhobo/Cell-Growth-Simulation/blob/main/Lighthouse_result/Time1.PNG)
 - Work trace
-![Screenshot of the application](https://github.com/Thehashhobo/Cell-Growth-Simulation/blob/main/Lighthosue_result/Time2.PNG)
+![Screenshot of the application](https://github.com/Thehashhobo/Cell-Growth-Simulation/blob/main/Lighthouse_result/Time2.PNG)
 
 #### Enviromental Data
-![Screenshot of the application](https://github.com/Thehashhobo/Cell-Growth-Simulation/blob/main/Lighthosue_result/Nav3.PNG)
+![Screenshot of the application](https://github.com/Thehashhobo/Cell-Growth-Simulation/blob/main/Lighthouse_result/Nav3.PNG)
 # Application deployment
 The website is hosted on github pages: https://thehashhobo.github.io/Cell-Growth-Simulation/
