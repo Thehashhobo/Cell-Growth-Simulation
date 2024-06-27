@@ -1,0 +1,20 @@
+{
+    "short_name": "CellSim",
+    "name": "Cell Growth Simulation",
+    "icons": [
+      {
+        "src": "Cell.png",
+        "sizes": "1024x1024",
+        "type": "image/png"
+      },
+      {
+        "src": "Cell.png",
+        "sizes": "1024x1024",
+        "type": "image/png"
+      }
+    ],
+    "start_url": "https://thehashhobo.github.io/Cell-Growth-Simulation/",
+    "display": "standalone",
+    "theme_color": "#000000",
+    "background_color": "#ffffff"
+  }
