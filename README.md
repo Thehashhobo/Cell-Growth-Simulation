@@ -18,7 +18,7 @@ Before you begin, ensure you have the following installed on your machine:
 `git clone https://github.com/your-username/cell-growth-simulation.git`
 2. Navigate to the project directory: \
 `cd cell-growth-simulation`
-3. Install Dependencies(Note that warnings from deprecated dependencies can be safely ignore due to simiplicity of this project ): \
+3. Install Dependencies(Note that warnings from deprecated dependencies can be safely ignore due to simiplicity of this project): \
 `npm install`
 4. Start the development server: Open your browser and navigate to http://localhost:3000 to view the application: \
 `npm start`
@@ -28,9 +28,9 @@ The project is organized into the src folder:
 - Cell.tsx: The component representing individual cells on a grid.
 - Grid.tsx: The component responsible for rendering the grid and handling cell state toggling.
 - Controls.tsx: The component that provides control buttons and input fields to interact with the simulation.
-- Simulation.tsx: Contains the simulation logic including the state and effect hooks for managing the grid, interval, and cell growth. \
-- ErrorBoundary.tsx: used to warp app, catchs error anywhere in their child component tree, log those errors, and display a fallback UI. \
-- App.tsx: The main component in src that sets up the layout and integrates other components. \
+- Simulation.tsx: Contains the simulation logic including the state and effect hooks for managing the grid, interval, and cell growth. 
+- ErrorBoundary.tsx: used to warp app, catchs error anywhere in their child component tree, log those errors, and display a fallback UI. 
+- App.tsx: The main component in src that sets up the layout and integrates other components. 
 
 # Assumptions
 The grid is initialized with a default size of 20x20 and a default interval of 1000ms. The simulation assumes all cells start in an unoccupied state. Occupied cells will grow to all unoccupied neighbours.
@@ -39,5 +39,29 @@ The grid is initialized with a default size of 20x20 and a default interval of 1
 - Partially accessible with aria-label on controls, particularly useful for screen reader users.
 - keyboard navigation for controls (press tab to select buttons, enter to confirm).  
 # Performance analysis
+Performance of the application measured with chrome’s built in dev-tool: [Lighthouse](https://github.com/GoogleChrome/lighthouse)
+## Navigation
+- Analyze accessibility immediately after page load
+- Obtain a Lighthouse Performance score and all performance metrics.
+- Assess Progressive Web App capabilities.
+### Results
+- Overall Score and test results from lighthouse
+[nav1](Nav1.png)
+- Performance metric and results
+[nav2](Nav2.png)
+## Timespan
+- Measure layout shifts and JavaScript execution time over a timerange, including user interactions.
+- Discover performance opportunities to improve the experience for long-lived pages and SPAs.
+### Results
+- Performance metric and results from user interaction
+[time1](Time1.png)
+- Work trace
+[time2](Time2.png)
+
+
+#### Enviromental Data
+[nav3](Nav3.png)
+# Application deployment
+The website is host on github pages: https://thehashhobo.github.io/Cell-Growth-Simulation/
 
 
