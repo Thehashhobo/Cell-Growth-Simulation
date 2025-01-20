@@ -1,4 +1,4 @@
-# Project Overview
+# Cell Growth Simulation (Improved Version at [Cell Growth Simulation V2](https://github.com/Thehashhobo/Cell-Growth-Simulation-V2))
 The Cell Growth Simulation project is an interactive web application that simulates the growth of bacterial cells on a grid. Users can toggle the state of individual cells and start or pause the simulation to observe the growth pattern over time. The application provides visual feedback on the number of new cells added per cycle and charts the growth data dynamically.
 ## Features
 - Real-time interactive grid to toggle cell states
